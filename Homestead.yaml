@@ -1,0 +1,42 @@
+---
+ip: "192.168.10.10"
+memory: 2048
+cpus: 2
+provider: virtualbox
+
+authorize: ~/.ssh/id_rsa.pub
+
+keys:
+    - ~/.ssh/id_rsa
+
+folders:
+    - map: ~/Code
+      to: /home/vagrant/code
+      type: "nfs"
+
+sites:
+    - map: homestead.test
+      to: /home/vagrant/code/public
+
+databases:
+    - homestead
+    - salon-board
+    - salon-board-test
+    - ilayer
+    - ilayer-test
+
+features:
+    - postgresql: true
+    - pm2: true
+
+#services:
+#    - enabled:
+#        - "postgresql@12-main"
+#    - disabled:
+#        - "postgresql@11-main"
+
+ports:
+    - send: 6379
+      to: 6379
+    - send: 5432
+      to: 5432
