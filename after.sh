@@ -30,6 +30,8 @@ sudo npm install -g n
 sudo n 12.16.2
 PATH="$PATH"
 node -v
+# Install adonis cli
+npm i -g @adonisjs/cli
 
 # Config git
 git config --global user.name "Duy Nguyen"
